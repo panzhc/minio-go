@@ -46,6 +46,7 @@ func TestGetObjectReturnSuccess(t *testing.T) {
 	}
 
 	obj, err := clnt.GetObject(context.Background(), "bucketName", "objectName", GetObjectOptions{})
+	defer obj.Close()
 	if err != nil {
 		t.Fatal(err)
 	}
